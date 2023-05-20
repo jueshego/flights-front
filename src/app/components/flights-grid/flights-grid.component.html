@@ -1,0 +1,30 @@
+<h3 *ngIf="journey">Ruta {{journey.origin}} - {{journey.destination}}</h3>
+
+<div class="message" *ngIf="journey && journey.message">
+    {{journey.message}}
+</div>
+
+<div *ngIf="journey && journey.flights.length> 0">
+    <h5>Precio total: {{currency}} {{journey.price}}</h5>
+    <h5>Flights</h5>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Origin</th>
+            <th scope="col">Destination</th>
+            <th scope="col">Price</th>
+            <th scope="col">Flight Carrier</th>
+            <th scope="col">Flight Number</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let item of journey.flights">
+            <td>{{item.origin}}</td>
+            <td>{{item.destination}}</td>
+            <td>{{item.price}}</td>
+            <td>{{item.transport.flightCarrier}}</td>
+            <td>{{item.transport.flightNumber}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>

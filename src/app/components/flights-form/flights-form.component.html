@@ -1,0 +1,20 @@
+<div class="card">
+    <form (submit)="send()">
+        <div class="input col-sm-12">
+          <label for="origin" class="form-label">Origen</label>
+          <input type="text" class="form-control" id="origin" [(ngModel)]="model.origin" 
+            #origin="ngModel" name="origin" maxlength="3" minlength="3" required>
+        </div>
+        <div class="input col-sm-12">
+          <label for="destination" class="form-label">Destino</label>
+          <input type="text" class="form-control" id="destination" [(ngModel)]="model.destination" 
+            #destination="ngModel" name="destination" maxlength="3" minlength="3" required>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="!origin.valid || !destination.valid">Buscar</button>
+      </form>
+</div>
+<div class="validationMsg" *ngIf="validationMsg">
+  {{validationMsg}}
+</div>
+
+
